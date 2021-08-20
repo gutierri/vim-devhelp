@@ -101,13 +101,13 @@ function! DevhelpUpdateI (flag)
   endif
 endfunction
 
-if exists ('g:devhelpSearch') && g:devhelpSearch
+if exists ('g:devhelpSearch')
   " Update the main Devhelp window when the search key is pressed
   exec 'nmap '.g:devhelpSearchKey.' :call DevhelpUpdate("s")<CR>'
   exec 'imap '.g:devhelpSearchKey.' <ESC>:call DevhelpUpdateI("s")<CR>'
 endif
 
-if exists ('g:devhelpAssistant') && g:devhelpAssistant
+if exists ('g:devhelpAssistant')
   " Update the assistant window if the user hasn't pressed a key for a 
   " while. See :help updatetime for how to change this delay
   au! CursorHold  * nested call DevhelpUpdate('a')
